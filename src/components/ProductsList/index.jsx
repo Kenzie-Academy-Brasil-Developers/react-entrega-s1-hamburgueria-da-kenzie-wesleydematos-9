@@ -1,10 +1,21 @@
-import { LiStyled } from "../Product/style";
+import Product from "../Product";
 import { UlStyled } from "./style";
 
-const ProductsList = () => {
+const ProductsList = ({ products }) => {
   return (
     <UlStyled>
-      <LiStyled />
+      {products.map((product) => {
+        return (
+          <Product
+            key={product.id}
+            image={product.img}
+            name={product.name}
+            category={product.category}
+            value={product.price}
+            id={product.id}
+          />
+        );
+      })}
     </UlStyled>
   );
 };

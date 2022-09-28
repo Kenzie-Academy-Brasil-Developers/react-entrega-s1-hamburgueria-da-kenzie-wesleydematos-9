@@ -8,7 +8,13 @@ const Product = ({ image, name, category, value, id }) => {
       </div>
       <h1>{name}</h1>
       <span>{category}</span>
-      <p>{value}</p>
+      <p>
+        {value.toLocaleString("pt-BR", {
+          minimumFractionDigits: 2,
+          style: "currency",
+          currency: "BRL",
+        })}
+      </p>
       <button id={id}>Adicionar</button>
     </LiStyled>
   );
