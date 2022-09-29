@@ -1,7 +1,14 @@
 import logo from "../../img/logo.svg";
 import { HeaderStyled } from "./style";
 
-const Header = ({ showProducts }) => {
+const Header = ({ showProducts, filteredProducts, inexist }) => {
+  function searchProduct() {
+    if (!filteredProducts.length) {
+      inexist();
+      const input = document.querySelector("input");
+      input.value = "";
+    }
+  }
   return (
     <HeaderStyled>
       <img src={logo} alt="Burguer Kenzie Logo" />
@@ -13,7 +20,14 @@ const Header = ({ showProducts }) => {
             showProducts(event);
           }}
         />
-        <button>Pesquisar</button>
+        <button
+          type="button"
+          onClick={() => {
+            searchProduct();
+          }}
+        >
+          Pesquisar
+        </button>
       </div>
     </HeaderStyled>
   );

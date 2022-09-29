@@ -23,6 +23,10 @@ export const GlobalStyle = createGlobalStyle`
         --white: #FFFFFF;
     }
 
+body{
+    overflow: hidden;
+}
+
     button{
         cursor: pointer;
         border: none;

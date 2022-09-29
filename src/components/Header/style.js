@@ -10,6 +10,7 @@ export const HeaderStyled = styled.header`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
 
   img {
     width: 159px;
