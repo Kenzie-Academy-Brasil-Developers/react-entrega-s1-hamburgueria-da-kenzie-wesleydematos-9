@@ -22,6 +22,10 @@ export const LiStyled = styled.li`
     height: 150px;
   }
 
+  div > img:hover {
+    transform: scale(1.25, 1.25);
+  }
+
   h1 {
     font-weight: 700;
     font-size: 18px;

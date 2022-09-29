@@ -3,9 +3,11 @@ import { HeaderStyled } from "./style";
 
 const Header = ({ showProducts, filteredProducts, inexist }) => {
   function searchProduct() {
+    const input = document.querySelector("input");
     if (!filteredProducts.length) {
       inexist();
-      const input = document.querySelector("input");
+      input.value = "";
+    } else {
       input.value = "";
     }
   }
