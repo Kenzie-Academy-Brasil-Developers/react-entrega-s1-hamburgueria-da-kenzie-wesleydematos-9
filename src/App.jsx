@@ -5,12 +5,13 @@ import api from "./services/api";
 import toast, { Toaster } from "react-hot-toast";
 import { MainStyled } from "./styles/main";
 import Results from "./components/Results";
+import Cart from "./components/Cart";
 
 function App() {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [resultSaerch, setResultSaerch] = useState("");
-  // const [currentSale, setCurrentSale] = useState([]);
+  const [currentSale, setCurrentSale] = useState([]);
 
   useEffect(() => {
     api.get("/products").then((response) => {
@@ -44,7 +45,10 @@ function App() {
     setFilteredProducts(newProducts);
   }
 
-  // function handleClick(productId) {}
+  function handleClick(productId) {
+    const productSale = products.find((element) => element.id == productId);
+    setCurrentSale([...currentSale, productSale]);
+  }
 
   return (
     <div className="App">
@@ -71,15 +75,13 @@ function App() {
           )}
           <ProductsList
             products={filteredProducts.length ? filteredProducts : products}
+            handleClick={handleClick}
           />
         </section>
 
         <section className="cart">
           <h2>Carrinho de compras</h2>
-          <div className="contentCart">
-            <p>Sua sacola está vazia</p>
-            <span>adicione itens</span>
-          </div>
+          <Cart currentSale={currentSale} />
         </section>
       </MainStyled>
     </div>

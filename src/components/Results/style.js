@@ -32,6 +32,11 @@ export const ResultsStyled = styled.div`
     border-radius: 8px;
   }
 
+  button:hover {
+    background-color: var(--color-primary-ligth);
+    border: 2px solid var(--color-primary-ligth);
+  }
+
   @media (min-width: 1600px) {
     width: 60vw;
     justify-content: space-between;

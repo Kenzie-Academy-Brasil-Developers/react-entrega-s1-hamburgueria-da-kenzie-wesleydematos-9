@@ -1,6 +1,6 @@
 import { LiStyled } from "./style";
 
-const Product = ({ image, name, category, value, id }) => {
+const Product = ({ image, name, category, value, id, handleClick }) => {
   return (
     <LiStyled>
       <div>
@@ -15,7 +15,15 @@ const Product = ({ image, name, category, value, id }) => {
           currency: "BRL",
         })}
       </p>
-      <button id={id}>Adicionar</button>
+      <button
+        id={id}
+        type="button"
+        onClick={(event) => {
+          handleClick(event.target.id);
+        }}
+      >
+        Adicionar
+      </button>
     </LiStyled>
   );
 };

@@ -61,4 +61,9 @@ export const LiStyled = styled.li`
     border: 2px solid var(--color-primary);
     border-radius: 8px;
   }
+
+  button:hover {
+    background-color: var(--color-primary-ligth);
+    border: 2px solid var(--color-primary-ligth);
+  }
 `;
