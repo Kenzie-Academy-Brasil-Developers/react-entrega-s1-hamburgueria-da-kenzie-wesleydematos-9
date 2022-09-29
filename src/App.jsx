@@ -5,6 +5,7 @@ import api from "./services/api";
 
 function App() {
   const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
 
   useEffect(() => {
     api.get("/products").then((response) => {
@@ -12,11 +13,27 @@ function App() {
     });
   }, []);
 
+  function showProducts(event) {
+    const newProducts = products.filter((product) => {
+      if (
+        product.name
+          .toLowerCase()
+          .includes(event.target.value.trim().toLowerCase())
+      ) {
+        return product;
+      }
+    });
+
+    setFilteredProducts(newProducts);
+  }
+
   return (
-    <div className="App">
-      <Header />
+    <div className="App dark">
+      <Header showProducts={showProducts} />
       <main>
-        <ProductsList products={products} />
+        <ProductsList
+          products={filteredProducts.length ? filteredProducts : products}
+        />
       </main>
     </div>
   );
