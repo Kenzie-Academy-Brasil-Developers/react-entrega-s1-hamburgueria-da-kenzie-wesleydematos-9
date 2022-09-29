@@ -23,10 +23,6 @@ export const GlobalStyle = createGlobalStyle`
         --white: #FFFFFF;
     }
 
-body{
-    overflow: hidden;
-}
-
     button{
         cursor: pointer;
         border: none;
@@ -35,5 +31,11 @@ body{
 
     ul, ol, li{
         list-style: none;
+    }
+
+    @media (min-width: 1600px) {
+        body{
+            overflow: hidden;
+        }
     }
 `;

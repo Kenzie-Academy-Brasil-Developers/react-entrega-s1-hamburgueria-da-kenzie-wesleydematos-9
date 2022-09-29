@@ -70,11 +70,11 @@ export const HeaderStyled = styled.header`
     height: 80px;
 
     img {
-      margin-left: 110px;
+      margin-left: 7.18%;
     }
 
     div {
-      margin-right: 110px;
+      margin-right: 7.18%;
     }
   }
 `;

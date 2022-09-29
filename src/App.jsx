@@ -3,10 +3,14 @@ import Header from "./components/Header";
 import ProductsList from "./components/ProductsList";
 import api from "./services/api";
 import toast, { Toaster } from "react-hot-toast";
+import { MainStyled } from "./styles/main";
+import Results from "./components/Results";
 
 function App() {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const [resultSaerch, setResultSaerch] = useState("");
+  // const [currentSale, setCurrentSale] = useState([]);
 
   useEffect(() => {
     api.get("/products").then((response) => {
@@ -36,26 +40,48 @@ function App() {
       }
     });
 
+    setResultSaerch(event.target.value);
     setFilteredProducts(newProducts);
   }
 
+  // function handleClick(productId) {}
+
   return (
     <div className="App">
+      <Toaster
+        containerStyle={{
+          position: "relative",
+          bottom: 0,
+        }}
+      />
       <Header
         showProducts={showProducts}
         filteredProducts={filteredProducts}
         inexist={inexist}
       />
-      <main>
-        <ProductsList
-          products={filteredProducts.length ? filteredProducts : products}
-        />
-      </main>
-      <Toaster
-        containerStyle={{
-          position: "relative",
-        }}
-      />
+
+      <MainStyled>
+        <section>
+          {resultSaerch && (
+            <Results
+              resultSaerch={resultSaerch}
+              setResultSaerch={setResultSaerch}
+              setFilteredProducts={setFilteredProducts}
+            />
+          )}
+          <ProductsList
+            products={filteredProducts.length ? filteredProducts : products}
+          />
+        </section>
+
+        <section className="cart">
+          <h2>Carrinho de compras</h2>
+          <div className="contentCart">
+            <p>Sua sacola está vazia</p>
+            <span>adicione itens</span>
+          </div>
+        </section>
+      </MainStyled>
     </div>
   );
 }
