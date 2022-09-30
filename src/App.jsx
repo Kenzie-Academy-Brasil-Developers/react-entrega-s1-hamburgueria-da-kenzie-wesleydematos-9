@@ -47,7 +47,21 @@ function App() {
 
   function handleClick(productId) {
     const productSale = products.find((element) => element.id == productId);
-    setCurrentSale([...currentSale, productSale]);
+    if (currentSale.length) {
+      const aux = currentSale.filter((element) => {
+        if (element.id == productId) {
+          return element;
+        }
+      });
+
+      if (aux.length) {
+        aux[0].count = aux[0].count + 1;
+      } else {
+        setCurrentSale([...currentSale, { ...productSale, count: 1 }]);
+      }
+    } else {
+      setCurrentSale([...currentSale, { ...productSale, count: 1 }]);
+    }
   }
 
   return (
