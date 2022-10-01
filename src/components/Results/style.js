@@ -36,20 +36,19 @@ export const ResultsStyled = styled.div`
     background-color: var(--color-primary-ligth);
     border: 2px solid var(--color-primary-ligth);
   }
-
-  @media (min-width: 1600px) {
+  @media (min-width: 1440px) {
     width: 60vw;
     justify-content: space-between;
-
-    p {
-      margin-top: 20px;
-      margin-bottom: 0;
-    }
 
     button {
       margin-top: 20px;
       display: block;
       margin-right: 20px;
+    }
+
+    p {
+      margin-top: 20px;
+      margin-bottom: 0;
     }
   }
 
