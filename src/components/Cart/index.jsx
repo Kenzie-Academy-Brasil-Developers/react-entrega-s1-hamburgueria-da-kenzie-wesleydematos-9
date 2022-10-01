@@ -5,6 +5,10 @@ const Cart = ({ currentSale, setCurrentSale }) => {
     setCurrentSale([]);
   }
 
+  const sum = currentSale.reduce((acumulate, next) => {
+    return acumulate + Number(next.price) * Number(next.count);
+  }, 0);
+
   return (
     <DivStyled>
       {!currentSale.length ? (
@@ -38,7 +42,13 @@ const Cart = ({ currentSale, setCurrentSale }) => {
           <div className="cartTotal">
             <div>
               <p>Total</p>
-              <span>RS 40.00</span>
+              <span>
+                {sum.toLocaleString("pt-BR", {
+                  minimumFractionDigits: 2,
+                  style: "currency",
+                  currency: "BRL",
+                })}
+              </span>
             </div>
             <button
               type="button"

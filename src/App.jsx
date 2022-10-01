@@ -27,6 +27,14 @@ function App() {
       },
     });
 
+  const addProduct = () =>
+    toast("Produto adicionado ao carrinho!", {
+      style: {
+        backgroundColor: "var(--sucess)",
+        color: "var(--white)",
+      },
+    });
+
   function showProducts(event) {
     const newProducts = products.filter((product) => {
       if (
@@ -56,11 +64,15 @@ function App() {
 
       if (aux.length) {
         aux[0].count = aux[0].count + 1;
+        setCurrentSale([...currentSale]);
+        addProduct();
       } else {
         setCurrentSale([...currentSale, { ...productSale, count: 1 }]);
+        addProduct();
       }
     } else {
       setCurrentSale([...currentSale, { ...productSale, count: 1 }]);
+      addProduct();
     }
   }
 

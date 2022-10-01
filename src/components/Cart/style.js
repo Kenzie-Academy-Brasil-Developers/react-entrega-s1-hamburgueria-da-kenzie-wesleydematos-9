@@ -124,6 +124,7 @@ export const DivStyled = styled.div`
         font-weight: 600;
         font-size: 14px;
         line-height: 24px;
+        color: var(--gray-50);
       }
     }
 
