@@ -32,7 +32,7 @@ export const DivStyled = styled.div`
     max-height: 235px;
     overflow-y: auto;
 
-    @media (min-width: 1400px) {
+    @media (min-width: 1440px) {
       max-height: 350px;
     }
 

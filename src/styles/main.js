@@ -25,7 +25,7 @@ export const MainStyled = styled.main`
     }
   }
 
-  @media (min-width: 1600px) {
+  @media (min-width: 1440px) {
     flex-direction: row;
     justify-content: space-between;
     margin: 0 7.18%;

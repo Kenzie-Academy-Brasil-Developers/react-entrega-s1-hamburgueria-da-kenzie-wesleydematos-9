@@ -15,7 +15,7 @@ const Cart = ({
     removeOnlyProduct();
     let idProduct = event.target.id;
 
-    const cartIntensFilter = currentSale
+    const cartIntensFiltered = currentSale
       .filter((element) => {
         return element.id != idProduct;
       })
@@ -24,7 +24,7 @@ const Cart = ({
         return element;
       });
 
-    setCurrentSale(cartIntensFilter);
+    setCurrentSale(cartIntensFiltered);
   }
 
   const sum = currentSale.reduce((acumulate, next) => {

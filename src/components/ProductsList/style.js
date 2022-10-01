@@ -13,7 +13,7 @@ export const UlStyled = styled.ul`
     margin-top: 30px;
   }
 
-  @media (min-width: 1600px) {
+  @media (min-width: 1440px) {
     flex-wrap: wrap;
     width: 60vw;
   }
