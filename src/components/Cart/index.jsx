@@ -1,8 +1,30 @@
 import { DivStyled } from "./style";
 
-const Cart = ({ currentSale, setCurrentSale }) => {
+const Cart = ({
+  currentSale,
+  setCurrentSale,
+  removeAllProduct,
+  removeOnlyProduct,
+}) => {
   function removeAll() {
+    removeAllProduct();
     setCurrentSale([]);
+  }
+
+  function removeOnly(event) {
+    removeOnlyProduct();
+    let idProduct = event.target.id;
+
+    const cartIntensFilter = currentSale
+      .filter((element) => {
+        return element.id != idProduct;
+      })
+      .map((element) => {
+        element.id = element.id + 10;
+        return element;
+      });
+
+    setCurrentSale(cartIntensFilter);
   }
 
   const sum = currentSale.reduce((acumulate, next) => {
@@ -32,7 +54,13 @@ const Cart = ({ currentSale, setCurrentSale }) => {
                       <span>Quantidade: {element.count}</span>
                     </div>
                   </article>
-                  <button type="button" id={element.id}>
+                  <button
+                    type="button"
+                    id={element.id}
+                    onClick={(event) => {
+                      removeOnly(event);
+                    }}
+                  >
                     Remover
                   </button>
                 </li>

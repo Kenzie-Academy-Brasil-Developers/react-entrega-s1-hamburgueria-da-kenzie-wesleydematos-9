@@ -20,7 +20,7 @@ function App() {
   }, []);
 
   const inexist = () =>
-    toast("Produto inexistente, refaça a busca.", {
+    toast("Item inexistente, refaça a busca.", {
       style: {
         backgroundColor: "var(--negative)",
         color: "var(--white)",
@@ -28,9 +28,25 @@ function App() {
     });
 
   const addProduct = () =>
-    toast("Produto adicionado ao carrinho!", {
+    toast("Item adicionado ao carrinho!", {
       style: {
         backgroundColor: "var(--sucess)",
+        color: "var(--white)",
+      },
+    });
+
+  const removeAllProduct = () =>
+    toast("Todos os itens foram removidos!", {
+      style: {
+        backgroundColor: "var(--negative)",
+        color: "var(--white)",
+      },
+    });
+
+  const removeOnlyProduct = () =>
+    toast("Item removido do carrinho!", {
+      style: {
+        backgroundColor: "var(--warning)",
         color: "var(--white)",
       },
     });
@@ -107,7 +123,12 @@ function App() {
 
         <section className="cart">
           <h2>Carrinho de compras</h2>
-          <Cart currentSale={currentSale} setCurrentSale={setCurrentSale} />
+          <Cart
+            currentSale={currentSale}
+            setCurrentSale={setCurrentSale}
+            removeAllProduct={removeAllProduct}
+            removeOnlyProduct={removeOnlyProduct}
+          />
         </section>
       </MainStyled>
     </div>

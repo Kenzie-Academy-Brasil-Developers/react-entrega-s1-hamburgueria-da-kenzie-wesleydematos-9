@@ -38,7 +38,7 @@ export const HeaderStyled = styled.header`
   }
 
   div > input:focus {
-    border: 2px solid var(--gray-50);
+    border: 2px solid #ffe21a94;
   }
 
   div > button {

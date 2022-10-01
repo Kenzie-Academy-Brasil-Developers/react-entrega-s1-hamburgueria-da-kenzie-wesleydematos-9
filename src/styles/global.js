@@ -9,16 +9,16 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     :root{
-        --color-primary: #27AE60;
-        --color-primary-ligth: #93D7AF;
+        --color-primary: #ff1a1a;
+        --color-primary-ligth: #f53e3e;
         --color-secondary: #EB5757;
-        --gray-100: #333333;
+        --gray-100: #ffd500;
         --gray-50: #828282;
         --gray-20: #E0E0E0;
         --gray-0: #F5F5F5;
         --negative: #E60000;
         --warning: #FFCD07;
-        --sucess: #168821;
+        --sucess: #ff6d00;
         --information: #155BCB;
         --white: #FFFFFF;
     }
