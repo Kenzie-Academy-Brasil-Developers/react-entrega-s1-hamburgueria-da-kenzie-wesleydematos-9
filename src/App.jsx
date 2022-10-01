@@ -95,7 +95,7 @@ function App() {
 
         <section className="cart">
           <h2>Carrinho de compras</h2>
-          <Cart currentSale={currentSale} />
+          <Cart currentSale={currentSale} setCurrentSale={setCurrentSale} />
         </section>
       </MainStyled>
     </div>

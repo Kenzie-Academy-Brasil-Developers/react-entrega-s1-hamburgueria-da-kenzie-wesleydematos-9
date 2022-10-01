@@ -1,6 +1,10 @@
 import { DivStyled } from "./style";
 
-const Cart = ({ currentSale }) => {
+const Cart = ({ currentSale, setCurrentSale }) => {
+  function removeAll() {
+    setCurrentSale([]);
+  }
+
   return (
     <DivStyled>
       {!currentSale.length ? (
@@ -12,7 +16,6 @@ const Cart = ({ currentSale }) => {
         <>
           <ul className="carrinho">
             {currentSale.map((element) => {
-              console.log(element);
               return (
                 <li key={element.id}>
                   <article>
@@ -37,7 +40,14 @@ const Cart = ({ currentSale }) => {
               <p>Total</p>
               <span>RS 40.00</span>
             </div>
-            <button type="button">Remover todos</button>
+            <button
+              type="button"
+              onClick={() => {
+                removeAll();
+              }}
+            >
+              Remover todos
+            </button>
           </div>
         </>
       )}
