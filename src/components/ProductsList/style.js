@@ -15,6 +15,11 @@ export const UlStyled = styled.ul`
 
   @media (min-width: 1440px) {
     flex-wrap: wrap;
-    width: 60vw;
+    gap: 5px;
+    width: 65vw;
+  }
+
+  @media (min-width: 1600px) {
+    gap: 20px;
   }
 `;

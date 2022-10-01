@@ -31,11 +31,17 @@ export const MainStyled = styled.main`
     margin: 0 7.18%;
 
     .cart {
-      min-width: 365px;
+      width: 330px;
       align-self: flex-start;
     }
     .cart > h2 {
       margin-top: 30px;
+    }
+  }
+
+  @media (min-width: 1600px) {
+    .cart {
+      min-width: 365px;
     }
   }
 `;

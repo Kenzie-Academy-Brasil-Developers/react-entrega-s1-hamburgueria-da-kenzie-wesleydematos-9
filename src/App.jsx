@@ -107,7 +107,7 @@ function App() {
       />
 
       <MainStyled>
-        <section>
+        <section className="allProducts">
           {resultSaerch && (
             <Results
               resultSaerch={resultSaerch}
